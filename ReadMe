@@ -1,0 +1,51 @@
+[Main]
+ container
+    - 유일하게 Query 사용 if문 통해 error 및 loading 체크 필요
+    - 다른 component와 구분해서 db 에러 발생해도 테스트는 진행가능
+
+[Test]
+ component
+    buttons
+        - 마지막 문제의 경우 결과 페이지로 이동
+        - redux를 사용해서 문제 번호마다의 점수를 부여
+        - 1과 -1을 통해 점수 계산
+  questions
+        - 문제에 대한 css
+ container  
+    buttonsContainer
+        - 문제별로 페이지를 만든게 아니라 url parameter를 통해 Link로 다음 문제로 넘어가고
+        - url query(match)를 통해 해당 문제를 question.json에서 불러옴
+    questionsContainer
+        - questions.json에서 match를 통해 받은 id로 문제 불러옴
+
+[Result]
+ component
+    topTitle
+        - 상단 헤더 css
+    resultImage
+        - 일러스트
+    featureOneList
+        - 성향 리스트, map을 통해 각기 다른 성향 개수에 대한 처리
+    featureTwoList
+        - 내 안에 000가 있다고?
+        - 카페로 링크
+    featureThreeList
+        - 현실 000가 되려면?
+        - 카페로 링크
+    matchImages
+        - 궁합이미지 -> 카페로 링크
+    LinkButtons
+        - url : clipboard 모듈 이용
+        - kakao : 카카오 디벨로퍼스에서 api인증 받고 사용
+    hashTag
+        - "태그 복사하기" 버튼에만 위 url과 똑같은 모듈 사용
+    promotionBox
+        - 카페 링크
+ container - nothing
+
+ resultLoading 
+    - 마지막 문제의 경우 useMutation 및 redux사용이 제한되므로 로딩페이지 사용
+    - 12문제의 정답에 대한 유형을 Link를 사용해서 보내줌
+    
+TODO: 도메인 주소 나오면 url수정필요(copyurl, kakao)
+TODO: kakao 멘트 / OG태그 멘트
